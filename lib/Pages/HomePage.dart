@@ -122,15 +122,9 @@ class _HomeState extends State<Home> {
     if(response.statusCode == 200){
       final json = jsonDecode(response.body) as Map;
       final result = json["items"] as List;
-      setState(() {
-        items = result;
-        totalTasks = items.length;
-        completedTasks = totalTasks - pendingTasks;
-      });
+
+      totalTasks = result.length;
     }
-    setState(() {
-      isLoading = false;
-    });
   }
 
   Future<void> fetchNotCompletedTasks() async {
@@ -141,7 +135,6 @@ class _HomeState extends State<Home> {
       final json = jsonDecode(response.body) as Map;
       final List<dynamic> result = json["items"] as List;
 
-      // Tamamlanmamış görevleri filtrele
       List<dynamic> incompleteTasks = result.where((task) => task["is_completed"] == false).toList();
 
       setState(() {
@@ -171,7 +164,6 @@ class _HomeState extends State<Home> {
     );
 
     if (response.statusCode == 200) {
-      // Başarılı durum
       showSuccessMessage('task updated successfully');
     } else {
      showErrorMessage('task not updated!');
