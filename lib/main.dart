@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app_flutter/Pages/AddTaskPage.dart';
-import 'package:todo_app_flutter/Pages/AllTasksPage.dart';
-import 'package:todo_app_flutter/Pages/HomePage.dart';
+import 'package:todoapp_flutter/Pages/AddTaskPage.dart';
+import 'package:todoapp_flutter/Pages/AllTasksPage.dart';
+import 'package:todoapp_flutter/Pages/HomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,13 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'ToDO App',
       theme: ThemeData(
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'ToDo App'),
     );
   }
 }
